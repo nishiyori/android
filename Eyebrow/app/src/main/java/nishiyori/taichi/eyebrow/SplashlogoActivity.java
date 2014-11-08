@@ -1,9 +1,12 @@
 package nishiyori.taichi.eyebrow;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import nishiyori.taichi.eyebrow.activities.CameraActivity;
 
 
 public class SplashlogoActivity extends Activity {
@@ -13,7 +16,6 @@ public class SplashlogoActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splashlogo);
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -32,5 +34,16 @@ public class SplashlogoActivity extends Activity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // TODO 何かしらのチェック
+        Intent intent = new Intent(this, CameraActivity.class);
+        startActivity(intent);
+
+        // 本アクティビティは終了しておく
+        finish();
     }
 }
